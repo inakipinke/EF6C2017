@@ -1,7 +1,12 @@
 <h1>Resultado de elecciones</h1>
 
 <!-- Deberias escribir el codigo aqui -->
-
+{% for voto in votos %}
+<hr>
+<h10>{{voto.candidatov}}</h10>
+<h10>{{voto.distritov}}</h10>
+<hr>
+{% endfor %}
 
 <h2>Resultados Por distrito</h2>
 

@@ -19,7 +19,14 @@ def resultado_global(request):
     """
     context={}
     context['distritos'] = Distrito.objects.all()
-    #TODO TU CODIGO AQUI
+    context['votos'] = Votos.objects.all()
+    Votosabc = Votos.objects.all()
+    cant_votos = 0
+    for voto in Votosabc:
+        print(voto)
+        cant_votos = cant_votos+1
+        print cant_votos
+    
 
     return render(request,'global.html',context)
 

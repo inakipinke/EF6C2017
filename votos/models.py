@@ -24,17 +24,23 @@ class Distrito(models.Model):
 
 class Candidato(models.Model):
     """
-    #TODO Completar segun consideraciones del desarrollador
-    En este comentario escribir por que se decide modelar de esta
-    forma la clase
+    Cree variable nombre con un maximo de 50 caracteres
+    , con valor por default Nombre candidato, y ademas tiene edad con valor por default 0
     """
-    pass
+    nombrec = models.CharField(max_length=50, default='Nombre candidato')
+    edadc = models.IntegerField(default='0')
+    #esta funcion define el nombre del objeto que aparecera en el admin 
+    def __str__(self):
+        return 'Candidato {}'.format(self.nombrec)
 
 
 class Votos(models.Model):
     """
-    #TODO Completar segun consideraciones del desarrollador
-    En este comentario escribir por que se decide modelar de esta
-    forma la clase
+    Aca cree dos foreign Keys para definir que el voto contiene un candidato y un distrito.
     """
-    pass
+    candidatov = models.ForeignKey(Candidato)
+    voto = models.IntegerField(null=True)
+    distritov = models.ForeignKey(Distrito)
+
+    def __str__(self):
+        return 'voto para {}'.format(self.candidatov)
